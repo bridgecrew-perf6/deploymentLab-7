@@ -3,11 +3,13 @@ const path = require('path')
 
 const app = express()
 
-app.get('/', (req, res) => {res.sendFile(path.join(__dirname, '../index.html'))})
+app.get('/', (req, res) => {res.sendFile(path.join(__dirname, '../client/index.html'))})
 
-app.get('/css', (req, res) => {res.sendFile(path.join(__dirname, '../index.css'))})
+app.use(express.static('client'))
 
-app.get('/js', (req, res) => {res.sendFile(path.join(__dirname, '../test.js'))})
+// app.get('/css', (req, res) => {res.sendFile(path.join(__dirname, '../index.css'))})
+
+// app.get('/js', (req, res) => {res.sendFile(path.join(__dirname, '../test.js'))})
 
 const port = process.env.PORT || 4006
 
